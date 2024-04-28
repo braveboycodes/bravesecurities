@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Checker - Brave Securities</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #fff;
+  }
+  .header {
+    background-color: #FFA500;
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Added for positioning */
+  }
+  h1 {
+    margin: 0;
+    font-size: 36px;
+  }
+  h2 {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #888;
+  }
+  .back-btn {
+    position: absolute; /* Added for positioning */
+    left: 20px; /* Adjust as needed */
+    top: 50%; /* Adjust as needed */
+    transform: translateY(-50%); /* Added for vertical centering */
+  }
+  .container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  input[type="password"] {
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFA500;
+    color: #fff;
+    cursor: pointer;
+  }
+  p {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  .section {
+    margin-top: 50px;
+  }
+  .points {
+    text-align: left;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 10px;
+  }
+  .points h3 {
+    color: #FFA500;
+  }
+  .points ul {
+    padding-left: 20px;
+  }
+  .footer {
+    background-color: #333;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0; /* Added for positioning */
+  }
+  .social-icons {
+    list-style: none;
+    padding: 0;
+  }
+  .social-icons li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  .social-icons li a {
+    color: #fff;
+    font-size: 24px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <!-- Back button icon with link -->
+  <a href="home.html" class="back-btn">&#8592;</a>
+  <h1>BRAVE SECURITIES</h1>
+  <h2>Password Checker</h2>
+</div>
+
+<div class="container">
+  <input type="password" id="password" placeholder="Enter your password">
+  <button onclick="checkPassword()">Check Password</button>
+  <p id="strength"></p>
+</div>
+
+<div class="section">
+  <div class="points">
+    <h3>Points to Remember While Creating the Password:</h3>
+    <ul>
+      <li>Password should be at least 8 characters long.</li>
+      <li>Include a mix of uppercase and lowercase letters.</li>
+      <li>Include numbers and special characters.</li>
+      <li>Avoid using easily guessable information such as names or birthdays.</li>
+      <li>Do not reuse passwords across multiple accounts.</li>
+      <li>Consider using a passphrase instead of a single word.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  <ul class="social-icons">
+    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+  </ul>
+</div>
+
+<script>
+function checkPassword() {
+  var password = document.getElementById("password").value;
+  var strengthMeter = document.getElementById("strength");
+
+  // Regular expressions to check password strength
+  var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
+  var mediumRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})");
+
+  if (strongRegex.test(password)) {
+    strengthMeter.innerHTML = "Strong password";
+    strengthMeter.style.color = "#4caf50";
+  } else if (mediumRegex.test(password)) {
+    strengthMeter.innerHTML = "Medium password";
+    strengthMeter.style.color = "#ff9800";
+  } else {
+    strengthMeter.innerHTML = "Weak password";
+    strengthMeter.style.color = "#f44336";
+  }
+}
+</script>
+
+</body>
+</html>

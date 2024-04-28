@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brave Securities</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #f18f01; /* Orange color */
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            margin-right: 20px;
+            font-size: 24px;
+            transition: transform 0.3s; /* Add transition for smoother animation */
+        }
+
+        .menu-icon.clicked {
+            transform: rotate(45deg); /* Rotate the icon when clicked */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            position: absolute;
+            background-color: #f18f01; /* Orange color */
+            width: 200px;
+            top: 100%;
+            left: 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Hide the menu initially */
+            transition: opacity 0.3s; /* Add transition for smoother animation */
+        }
+
+        nav ul.open {
+            display: block;
+            opacity: 1; /* Show the menu with animation */
+        }
+
+        nav ul li {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ffffff;
+            border-left: 2px solid #000000; /* Add black border to the left */
+            opacity: 0; /* Hide menu items initially */
+            transition: opacity 0.3s; /* Add transition for smoother animation */
+        }
+
+        nav ul.open li {
+            opacity: 1; /* Show menu items with animation */
+        }
+
+        nav ul li:last-child {
+            border-bottom: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #f18f01; /* Orange color */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 50px;
+            background-image: url('bg.jpg'); /* Add background image */
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0; /* Increase padding for better visibility */
+        }
+
+        .btn {
+            background-color: #f18f01; /* Orange color */
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .btn:hover {
+            background-color: #e67500; /* Darker shade of orange on hover */
+        }
+
+        .feature {
+            display: inline-block;
+            width: calc(33.333% - 20px); /* Adjust width of each feature */
+            margin-right: 20px;
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px; /* Add margin to the bottom */
+            transition: transform 0.3s; /* Add transition for smoother animation */
+        }
+
+        .feature:hover {
+            transform: translateY(-5px); /* Move the feature up slightly on hover */
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #f18f01; /* Orange color for headings */
+        }
+
+        .feature p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .separator {
+            display: inline-block;
+            width: 20px; /* Adjust width of separator */
+        }
+
+        .feature img {
+            max-width: 100%;
+            border-radius: 50%; /* Make the image circular */
+            margin-bottom: 10px;
+            transition: box-shadow 0.3s, transform 0.3s; /* Add transition for smoother animation */
+        }
+
+        .feature img:hover {
+            box-shadow: 0 0 20px rgba(241, 143, 1, 0.5); /* Orange shadow on hover */
+            transform: scale(1.1); /* Scale up image on hover */
+        }
+
+        .testimonial {
+            margin-top: 50px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+        }
+
+        .glow-pic {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .glow-pic:hover {
+            border-color: #f18f01; /* Orange color */
+        }
+
+        /* Remove underline and change cursor for feature links */
+        .feature a {
+            text-decoration: none;
+            cursor: pointer;
+            color: #ffffff; /* White color for links */
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <h1>Brave Securities</h1>
+    <nav>
+        <ul id="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="blog.html">Blog/Article</a></li>
+            <li><a href="resource.html">Resources</a></li>
+            <li><a href="education.html">Training/Education</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <img class="glow-pic" src="horizontal-pic.jpg" alt="Horizontal Picture">
+    <section id="home">
+        <div class="content">
+            <h2>Welcome to Brave Securities</h2>
+            <p>We provide top-notch cyber security solutions to safeguard your digital assets.</p>
+            <button class="btn">Learn More</button>
+        </div>
+    </section>
+    <section id="features">
+        <div class="feature">
+            <a href="construction.html"><img src="threat-detection.png" alt="Advanced Threat Detection"></a>
+            <h3>Advanced Threat Detection</h3>
+            <p>Stay ahead of cyber threats with our cutting-edge detection technology.</p>
+        </div>
+        <div class="separator"></div>
+        <div class="feature">
+            <a href="construction.html"><img src="monitoring.png" alt="24/7 Monitoring"></a>
+            <h3>24/7 Monitoring</h3>
+            <p>Our team of experts monitors your systems round-the-clock to ensure maximum security.</p>
+        </div>
+        <div class="separator"></div>
+        <div class="feature">
+            <a href="construction.html"><img src="solutions.png" alt="Customized Solutions"></a>
+            <h3>Customized Solutions</h3>
+            <p>We tailor our solutions to meet your specific security needs and challenges.</p>
+        </div>
+        <div class="separator"></div>
+        <div class="feature">
+            <a href="passscheck.html"><img src="password-safety.png" alt="Password Safety Checker"></a>
+            <h3>Password Safety Checker</h3>
+            <p>Ensure the strength of your passwords with our advanced password safety checker.</p>
+        </div>
+    </section>
+    <section id="testimonial" style="background-image: url('testimonial-bg.jpg'); background-size: cover; background-position: center;">
+        <div class="testimonial">
+            <h3>What Our Clients Say</h3>
+            <p>"Brave Securities helped us strengthen our cyber defenses and gave us peace of mind knowing our data is safe."</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Brave Securities. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        var menuIcon = document.querySelector('.menu-icon');
+        var menu = document.getElementById('menu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        menuIcon.classList.toggle('clicked'); // Toggle the 'clicked' class on the menu icon
+        menu.classList.toggle('open'); // Toggle the 'open' class on the menu
+    }
+</script>
+
+</body>
+</html>
